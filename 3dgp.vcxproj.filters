@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{a629d3af-e715-4986-89a0-f6494058df2f}</UniqueIdentifier>
+      <Extensions>hlsl;hlsli</Extensions>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{ee45315e-7cc9-4814-8d6d-1782ee360a7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ソース ファイル">
+      <UniqueIdentifier>{0637115e-eaad-455f-84dc-65135a6ed797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ヘッダー ファイル">
+      <UniqueIdentifier>{5254b80a-f47d-4e2c-b940-0d0f8f3cdf3b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sprite.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManger.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Blend.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="font.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="geometric_primitive.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="skinned_mesh.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_lib.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJ2D.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="BillBoard.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteData.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="3DMap.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrow.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Savedata.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="high_resolution_timer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="misc.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManger.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Blend.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="geometric_primitive.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="skinned_mesh.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_lib.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="template.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="delete.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJ2D.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Billboard.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteData.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="3DMap.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Arrow.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberName.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveData.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sprite.hlsli">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="sprite_ps.cso">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="sprite_vs.cso">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="geometric_primitive.hlsli">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="skinned_mesh.hlsli">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="billboard.hlsli">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="sprite_ps.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="geometric_primitive_vs.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="geometric_primitive_ps.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="sprite_vs.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="skinned_mesh_vs.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="skinned_mesh_ps.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="billboard_vs.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="billboard_ps.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
