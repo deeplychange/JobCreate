@@ -8,7 +8,7 @@
 using namespace DirectX;
 using namespace GameLib;
 
-
+////text
 Player player[PLAYER_MAX];
 
 std::string Name[]{
