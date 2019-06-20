@@ -379,9 +379,8 @@ void MapData::InitializeMap() {
 	//教師室
 	{
 		work = GetBuildableNum();
-		Create(Building[work],teacherRoom, L"./Data/picture/teacherroom.png", 1 + LENGTH * 7, BUILDING_Y, 1 + LENGTH * 6, 0, 0, 64, 64);
+		Create(work,Building[work],teacherRoom, L"./Data/picture/teacherroom.png", 1 + LENGTH * 7, BUILDING_Y, 1 + LENGTH * 6, 0, 0, 64, 64);
 		Building[work]->Id = work;
-		Building[work]->materialColor = color[RED];
 		Building[work]->materialColor.w = 1.0f;
 		buildableArray[work] = false;
 		//マップ情報設定
@@ -397,9 +396,7 @@ void MapData::InitializeMap() {
 	//図書館
 	{
 		work = GetBuildableNum();
-		Create(Building[work], library, L"./Data/picture/library.png", 5, BUILDING_Y, 9, 0, 0, 64, 64);
-		Building[work]->Id = work;
-		Building[work]->materialColor = color[YELLOW];
+		Create(work,Building[work], library, L"./Data/picture/library.png", 5, BUILDING_Y, 9, 0, 0, 64, 64);
 		Building[work]->materialColor.w = 1.0f;
 		buildableArray[work] = false;
 		//マップ情報設定
@@ -414,8 +411,7 @@ void MapData::InitializeMap() {
 	//自販機
 	{
 		work = GetBuildableNum();
-		Create(Building[work], autoShop, L"./Data/picture/autoShop.png", 9, BUILDING_Y, 9, 0, 0, 64, 64);
-		Building[work]->Id = work;
+		Create(work,Building[work], autoShop, L"./Data/picture/autoShop.png", 9, BUILDING_Y, 9, 0, 0, 64, 64);
 		Building[work]->materialColor.w = 1.0f;
 		buildableArray[work] = false;
 		//マップ情報設定
@@ -478,7 +474,7 @@ void MapData::UpdateMap(const DirectX::XMMATRIX &_projection, POINT *point, int 
 				//矢印アニメと属性アップ関数
 				AttributeUp(types, out[0], out[1], out[2]);
 			}
-			if (MapInfo[i].stage== StandBy) {
+			if (MapInfo[i].AttrUpFlag) {
 				if (!CheckAttr(i, 0, 0, MAX_ELEMENTS, check, types, out)) {
 					if (MapInfo[i].MomentFlag)MapInfo[i].stage = AttrDown;
 					AttributeUp(types, MapInfo[i].AttrMemory[0], MapInfo[i].AttrMemory[1], MapInfo[i].AttrMemory[2]);
@@ -502,7 +498,7 @@ void MapData::UpdateMap(const DirectX::XMMATRIX &_projection, POINT *point, int 
 				MapInfo[i].MusicRoomFlag = true;
 				AttributeUp(types, out[0], out[1], out[2]);
 			}
-			if (MapInfo[i].stage==StandBy) {
+			if (MapInfo[i].AttrUpFlag) {
 				if (!CheckAttr(i, 0, 0, MAX_ELEMENTS, check, types, out)) {
 					if (MapInfo[i].MomentFlag)MapInfo[i].stage = AttrDown;
 					AttributeUp(types, MapInfo[i].AttrMemory[0], MapInfo[i].AttrMemory[1], MapInfo[i].AttrMemory[2]);
@@ -701,33 +697,27 @@ void MapData::CreateBuilding(const DirectX::XMMATRIX &_projection,POINT  *point,
 						threadData.Attribute = road;
 						break;
 					case teacherRoom:  
-						Create(Building[i],teacherRoom, L"./Data/picture/teacherroom.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
-						Building[i]->Id = i;
+						Create(i,Building[i],teacherRoom, L"./Data/picture/teacherroom.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
 						threadData.Attribute = teacherRoom;
 						break;
 					case library:
-						Create(Building[i],library, L"./Data/picture/library.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
-						Building[i]->Id = i;
+						Create(i,Building[i],library, L"./Data/picture/library.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
 						threadData.Attribute = library;
 						break;
 					case autoShop:
-						Create(Building[i], autoShop, L"./Data/picture/autoShop.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
-						Building[i]->Id = i;
+						Create(i,Building[i], autoShop, L"./Data/picture/autoShop.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
 						threadData.Attribute = autoShop;
 						break;
 					case musicRoom:
-						Create(Building[i], musicRoom, L"./Data/picture/musicroom.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
-						Building[i]->Id = i;
+						Create(i,Building[i], musicRoom, L"./Data/picture/musicroom.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
 						threadData.Attribute = musicRoom;
 						break;
 					case gymnasium:
-						Create(Building[i], gymnasium, L"./Data/picture/gymnasium.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
-						Building[i]->Id = i;
+						Create(i,Building[i], gymnasium, L"./Data/picture/gymnasium.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
 						threadData.Attribute = gymnasium;
 						break;
 					case toilet:
-						Create(Building[i], toilet, L"./Data/picture/toilet.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
-						Building[i]->Id = i;
+						Create(i,Building[i], toilet, L"./Data/picture/toilet.png", BUILDING_X, BUILDING_Y, BUILDING_Z, BUILDING_TEX_POS_X, BUILDING_TEX_POS_Y, BUILDING_TEX_LENGTH, BUILDING_TEX_HIGHT);
 						threadData.Attribute = toilet;
 						break;
 
@@ -803,7 +793,7 @@ XMFLOAT3 ChangeToWorldPos(XMFLOAT3 _pos) {
 }
 
 
-void Create(GameLib::DATA3D* building, int Attribute,wchar_t *_filename, float posX, float posY, float posZ, float _sx, float _sy, float _sw, float _sh) {
+void Create(int num,GameLib::DATA3D* building, int Attribute,wchar_t *_filename, float posX, float posY, float posZ, float _sx, float _sy, float _sw, float _sh) {
 	building->sx = _sx; building->sy = _sy; building->sw = _sw; building->sh = _sh;
 	building->SetPrimitive(buildingDraw,false,_filename);
 	building->pos = ChangeToWorldPos(XMFLOAT3(posX, posY, posZ));
@@ -812,6 +802,7 @@ void Create(GameLib::DATA3D* building, int Attribute,wchar_t *_filename, float p
 	building->speed = XMFLOAT2(0.0f, 0.0f);
 	building->materialColor.w = 0.5f;
 	building->Attribute = Attribute;
+	building->Id = num;
 }
 
 //周囲の二ブロックをチェック
@@ -882,40 +873,7 @@ void SetAttribute(MapInformation* MapInfo) {
 	MapInfo->spirit			= data[spirit];
 	MapInfo->earnMoney		= data[earnMoney];
 	
-	//if (MapInfo->Attribute == teacherRoom) {
-	//	MapInfo->learning = 12;
-	//	MapInfo->communication = 3;
-	//	MapInfo->spirit = 2;
-	//}
-	//else if (MapInfo->Attribute == library) {
-	//	MapInfo->learning = 5;
-	//	MapInfo->communication = 0;
-	//	MapInfo->spirit = 5;
-	//}
-	//else if (MapInfo->Attribute == autoShop) {
-	//	MapInfo->learning = 0;
-	//	MapInfo->communication = 2;
-	//	MapInfo->spirit = 5;
-	//	MapInfo->earnMoney = 3;
-	//}
-	//else if (MapInfo->Attribute == musicRoom) {
-	//	MapInfo->spirit = 4;
-	//	MapInfo->learning = 1;
-	//	MapInfo->communication = 2;
-	//	MapInfo->earnMoney =0;
-	//}
-	//else if (MapInfo->Attribute == gymnasium) {
-	//	MapInfo->learning = 0;
-	//	MapInfo->communication = 1;
-	//	MapInfo->spirit = 7;
-	//	MapInfo->earnMoney = 25;
-	//}
-	//else if (MapInfo->Attribute == toilet) {
-	//	MapInfo->learning = -2;
-	//	MapInfo->communication = 6;
-	//	MapInfo->spirit = 1;
-	//	MapInfo->earnMoney = 0;
-	//}
+
 }
 
 

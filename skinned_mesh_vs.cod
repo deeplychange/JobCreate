@@ -74,7 +74,7 @@
     dcl_texcoord3 v3  // bone_weights<0,1,2,3>
     dcl_texcoord4 v4  // bone_indices<0,1,2,3>
 
-#line 12 "F:\å‹‰å¼·\å°±è·ä½œå“\é€”ä¸­\HelloWorld\HelloWorld\skinned_mesh_vs.hlsl"
+#line 12 "F:\å‹‰å¼·\å°±è·ä½œå“\é€”ä¸­\HelloWorld\JobCreate\skinned_mesh_vs.hlsl"
     if_lt c138.w, v3.x
       mov r0.xyz, c138.w  // ::p<0,1,2>
       mov r1.xyz, c138.w  // ::n<0,1,2>
@@ -242,7 +242,7 @@ dcl_temps 8
 //   o1.x <- <main return value>.color.x; o1.y <- <main return value>.color.y; o1.z <- <main return value>.color.z; o1.w <- <main return value>.color.w; 
 //   o0.x <- <main return value>.position.x; o0.y <- <main return value>.position.y; o0.z <- <main return value>.position.z; o0.w <- <main return value>.position.w
 //
-#line 28 "F:\•×‹­\AEì•i\“r’†\HelloWorld\HelloWorld\skinned_mesh"
+#line 28 "F:\•×‹­\AEì•i\“r’†\HelloWorld\JobCreate\skinned_mesh"
 mov r0.x, l(0)  // r0.x <- flag
 
 #line 8

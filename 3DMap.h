@@ -91,7 +91,7 @@ public:
 
 extern MapData mapData;
 
-void Create(GameLib::DATA3D* building,int Attribute, wchar_t *_filename, float posX, float posY, float posZ, float _sx, float _sy, float _sw, float _sh);
+void Create(int num,GameLib::DATA3D* building,int Attribute, wchar_t *_filename, float posX, float posY, float posZ, float _sx, float _sy, float _sw, float _sh);
 
 DirectX::XMFLOAT3 ChangeToWorldPos(DirectX::XMFLOAT3 _pos);
 
