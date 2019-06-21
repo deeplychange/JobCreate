@@ -26,7 +26,7 @@ Player::Player() {
 
 Player::~Player()
 {
-
+	//ChenYuezong comment test
 }
 
 //Astarの目的地更新
