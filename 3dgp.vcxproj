@@ -165,7 +165,7 @@
   <ItemGroup>
     <ClCompile Include="Arrow.cpp" />
     <ClCompile Include="AStar.cpp" />
-    <ClCompile Include="BillBoard.cpp" />
+    <ClCompile Include="playerManager.cpp" />
     <ClCompile Include="Blend.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="font.cpp" />
@@ -188,7 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arrow.h" />
-    <ClInclude Include="Billboard.h" />
+    <ClInclude Include="playerManager.h" />
     <ClInclude Include="Blend.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="delete.h" />

@@ -66,9 +66,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Game\ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="BillBoard.cpp">
-      <Filter>Game\ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="UI.cpp">
       <Filter>Game\ソース ファイル</Filter>
     </ClCompile>
@@ -88,6 +85,9 @@
       <Filter>Game\ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Savedata.cpp">
+      <Filter>Game\ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="playerManager.cpp">
       <Filter>Game\ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -146,9 +146,6 @@
     <ClInclude Include="Enemy.h">
       <Filter>Game\ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Billboard.h">
-      <Filter>Game\ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="UI.h">
       <Filter>Game\ヘッダー ファイル</Filter>
     </ClInclude>
@@ -171,6 +168,9 @@
       <Filter>Game\ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="SaveData.h">
+      <Filter>Game\ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="playerManager.h">
       <Filter>Game\ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

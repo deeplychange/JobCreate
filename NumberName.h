@@ -3,6 +3,7 @@
 #define NUMBER_H
 
 #define DEBUG_FG  (true)
+
 enum {
 	Clear,
 	SetGoal,

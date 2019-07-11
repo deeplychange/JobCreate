@@ -11,7 +11,7 @@
 #include <DirectXMath.h>
 #include "Game_lib.h"
 #include "Camera.h"
-#include "Billboard.h"
+#include "playerManager.h"
 class	SceneMain : public Scene, public Singleton<SceneMain>
 {
 private:
@@ -48,7 +48,7 @@ public:
 
 extern Camera camera;
 
-extern Billboard billBoard;
+extern PlayerManager playerManager;
 
 #define SCENE_MAIN      (SceneMain::getInstance())
 

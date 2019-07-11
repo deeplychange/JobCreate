@@ -1,7 +1,7 @@
 #ifndef ARROW_H
 #define ARROW_H
 #include  "Game_lib.h"
-#include  "Billboard.h"
+#include  "playerManager.h"
 #include  "3DMap.h"
 enum {
 	AttrUp,  //‘®«ƒAƒbƒv

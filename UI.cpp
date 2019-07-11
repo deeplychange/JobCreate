@@ -1,7 +1,7 @@
 #include "UI.h"
 #include "SpriteData.h"
 #include "3DMap.h"
-#include "Billboard.h"
+#include "playerManager.h"
 #include "SceneMain.h"
 // 移動アルゴリズムの実体
 UIListMain		    UIMain;         //主メニュー
@@ -51,7 +51,7 @@ void UIListMain::move(OBJ2D* obj,bool leftFlag,int month,int day,int money)
 					UISecondary.drawFlag = true;
 				}
 			if (MousePosCheck(point, LIST_SIZE_X*0, LIST_SIZE_Y*1, LIST_SIZE_X*1, LIST_SIZE_Y*2)) {
-				billBoard.addPlayFlag = true;
+				playerManager.addPlayFlag = true;
 			}
 			if (MousePosCheck(point, LIST_SIZE_X*0, LIST_SIZE_Y*2, LIST_SIZE_X*1, LIST_SIZE_Y*3)) {
 				UIHelp.drawFlag = true;
@@ -61,7 +61,14 @@ void UIListMain::move(OBJ2D* obj,bool leftFlag,int month,int day,int money)
 	}
 }
 //------------------------------------------------------------------------------
-
+#define UILIST_SECONDARY_POS_X (64)
+#define UILIST_SECONDARY_POS_Y (0)
+#define UILIST_SECONDARY_SIZE_X (64)
+#define UILIST_SECONDARY_SIZE_Y (256)
+#define UILIST_SECONDARY_TEX_SIZE_X (62)
+#define UILIST_SECONDARY_TEX_SIZE_Y (256)
+#define UILIST_SECONDARY_TEX_POS_X (0)
+#define UILIST_SECONDARY_TEX_POS_Y (0)
 void UIListSecondary::move(OBJ2D* obj,bool leftFlag, int month, int day, int money)
 {
 	
@@ -69,10 +76,10 @@ void UIListSecondary::move(OBJ2D* obj,bool leftFlag, int month, int day, int mon
 	case 0:
 		obj->SetSprite(L"./Data/picture/UI2.png",UI::Secondary_rood,UI::Secondary_max);
 		obj->SetSprite(L"./Data/picture/UI3.png",UI::Secondary_gymnasium,UI::Secondary_max);
-		obj->pos = VECTOR2(64, 0);
-		obj->size = VECTOR2(64, 256);
-		obj->texPos = VECTOR2(0, 0);
-		obj->texSize = VECTOR2(62, 256);
+		obj->pos = VECTOR2(UILIST_SECONDARY_POS_X, UILIST_SECONDARY_POS_Y);
+		obj->size = VECTOR2(UILIST_SECONDARY_SIZE_X, UILIST_SECONDARY_SIZE_Y);
+		obj->texPos = VECTOR2(UILIST_SECONDARY_TEX_POS_X, UILIST_SECONDARY_TEX_POS_Y);
+		obj->texSize = VECTOR2(UILIST_SECONDARY_TEX_SIZE_X, UILIST_SECONDARY_TEX_SIZE_Y);
 		obj->canDraw = false;
 		stage++;
 		//break;
@@ -87,46 +94,46 @@ void UIListSecondary::move(OBJ2D* obj,bool leftFlag, int month, int day, int mon
 		obj->ChangeSprite(drawNO);
 		point = mScreenToClient();
 		if (leftFlag) {
-			if (drawNO == T_L_A) {
-				if (MousePosCheck(point, 64 * 1, 64 * 0, 64 * 2, 64 * 1)) {
+			if (MousePosCheck(point, UILIST_SECONDARY_POS_X, UILIST_SECONDARY_SIZE_Y/4*0, UILIST_SECONDARY_POS_X+ UILIST_SECONDARY_SIZE_X, UILIST_SECONDARY_SIZE_Y/4*1)) 
+			{
+				if (drawNO == T_L_A) {
 					mapData.canCreate = road;
-					drawFlag = false;
-					stage = 1;
 				}
-				else if (MousePosCheck(point, 64 * 1, 64 * 1, 64 * 2, 64 * 2)) {
-					mapData.canCreate = teacherRoom;
-					drawFlag = false;
-					stage = 1;
-				}
-				else if (MousePosCheck(point, 64 * 1, 64 * 2, 64 * 2, 64 * 3)) {
-					mapData.canCreate = library;
-					drawFlag = false;
-					stage = 1;
-				}
-				else if (MousePosCheck(point, 64 * 1, 64 * 3, 64 * 2, 64 * 4)) {
-					mapData.canCreate = autoShop;
-					drawFlag = false;
-					stage = 1;
-				}
-			}
-			else if (drawNO == G_M_T) {
-				if (MousePosCheck(point, 64 * 1, 64 * 0, 64 * 2, 64 * 1)) {
+				else if (drawNO == G_M_T) {
 					mapData.canCreate = gymnasium;
-					drawFlag = false;
-					stage = 1;
 				}
-				else if (MousePosCheck(point, 64 * 1, 64 * 1, 64 * 2, 64 * 2)) {
+				drawFlag = false;
+				stage = 1;
+			}
+			else if (MousePosCheck(point, UILIST_SECONDARY_POS_X, UILIST_SECONDARY_SIZE_Y / 4 * 1, UILIST_SECONDARY_POS_X + UILIST_SECONDARY_SIZE_X, UILIST_SECONDARY_SIZE_Y / 4 * 2)) {
+				if (drawNO == T_L_A) {
+					mapData.canCreate = teacherRoom;
+				}
+				else if (drawNO == G_M_T) {
 					mapData.canCreate = musicRoom;
-					drawFlag = false;
-					stage = 1;
 				}
-				else if (MousePosCheck(point, 64 * 1, 64 * 2, 64 * 2, 64 * 3)) {
+				drawFlag = false;
+				stage = 1;
+			}
+			else if (MousePosCheck(point, UILIST_SECONDARY_POS_X, UILIST_SECONDARY_SIZE_Y / 4 * 2, UILIST_SECONDARY_POS_X + UILIST_SECONDARY_SIZE_X, UILIST_SECONDARY_SIZE_Y / 4 * 3)) {
+				if (drawNO == T_L_A) {
+					mapData.canCreate = library;
+				}
+				else if (drawNO == G_M_T) {
 					mapData.canCreate = toilet;
-					drawFlag = false;
-					stage = 1;
+				}
+				drawFlag = false;
+				stage = 1;
+			}
+			else if (MousePosCheck(point, UILIST_SECONDARY_POS_X, UILIST_SECONDARY_SIZE_Y / 4 * 3, UILIST_SECONDARY_POS_X + UILIST_SECONDARY_SIZE_X, UILIST_SECONDARY_SIZE_Y / 4 * 4)) {
+				if (drawNO == T_L_A) {
+					mapData.canCreate = autoShop;
 				}
 				
+				drawFlag = false;
+				stage = 1;
 			}
+			
 			if (MousePosCheck(point, ARROW_RIGHT_POS_X, ARROW_RIGHT_POS_Y, ARROW_RIGHT_POS_X + ARROW_SIZE, ARROW_RIGHT_POS_Y + ARROW_SIZE)) {
 				drawNO++;
 				if (drawNO >= 1)drawNO = 1;
@@ -146,7 +153,7 @@ void UIListSecondary::move(OBJ2D* obj,bool leftFlag, int month, int day, int mon
 }
 
 
-
+#define UILIST_ATTR
 void UIListAttribute::move(OBJ2D* obj, bool leftFlag, int month, int day, int money)
 {
 	switch (stage) {
@@ -364,8 +371,8 @@ void UIListMoney1::move(OBJ2D* obj, bool leftFlag, int month, int day, int money
 	case 1:
 		SetNumber(money);      //各桁の値を設定
 		
-		int  sx = (digit[0] % NUM_DIGIT_1LINE) * DIGIT_SIZE;
-		int  sy = (digit[0] / NUM_DIGIT_1LINE) * DIGIT_SIZE;
+		float sx = (float)((digit[0] % NUM_DIGIT_1LINE) * DIGIT_SIZE);
+		float sy = (float((digit[0] / NUM_DIGIT_1LINE) * DIGIT_SIZE));
 		obj->texPos = VECTOR2(sx, sy);
 		
 		break;
@@ -389,8 +396,8 @@ void UIListMoney2::move(OBJ2D* obj, bool leftFlag, int month, int day, int money
 		stage++;
 	case 1:
 		SetNumber(money);      //各桁の値を設定
-		int  sx = (digit[1] % NUM_DIGIT_1LINE) * DIGIT_SIZE;
-		int  sy = (digit[1] / NUM_DIGIT_1LINE) * DIGIT_SIZE;
+		float  sx = (float)((digit[1] % NUM_DIGIT_1LINE) * DIGIT_SIZE);
+		float  sy = (float)((digit[1] / NUM_DIGIT_1LINE) * DIGIT_SIZE);
 		obj->texPos = VECTOR2(sx, sy);
 		break;
 	}
@@ -413,8 +420,8 @@ void UIListMoney3::move(OBJ2D* obj, bool leftFlag, int month, int day, int money
 		stage++;
 	case 1:
 		SetNumber(money);      //各桁の値を設定
-		int  sx = (digit[2] % NUM_DIGIT_1LINE) * DIGIT_SIZE;
-		int  sy = (digit[2] / NUM_DIGIT_1LINE) * DIGIT_SIZE;
+		float  sx = (float)((digit[2] % NUM_DIGIT_1LINE) * DIGIT_SIZE);
+		float  sy = (float)((digit[2] / NUM_DIGIT_1LINE) * DIGIT_SIZE);
 		obj->texPos = VECTOR2(sx, sy);
 		break;
 	}

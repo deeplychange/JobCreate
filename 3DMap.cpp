@@ -7,7 +7,7 @@
 #include "UI.h"
 #include "Arrow.h"
 #include "Game_lib.h"
-#include "Billboard.h"
+
 using namespace DirectX;
 using namespace GameLib;
 
@@ -135,14 +135,15 @@ void Move(void* p) {
 				//		threadData.mapNum++;
 				//	}
 				//}
+				threadData.mapdata->isThreadLooping = false;
+				threadData.mapdata->isClearedFlag = false;
+				_endthread();
 
 				break;
 			}
 		}
 	}
-	threadData.mapdata->isThreadLooping = false;
-	threadData.mapdata->isClearedFlag = false;
-	_endthread();
+	return;
 };
 
 
@@ -478,12 +479,12 @@ void MapData::UpdateMap(const DirectX::XMMATRIX &_projection, POINT *point, int 
 				if (!CheckAttr(i, 0, 0, MAX_ELEMENTS, check, types, out)) {
 					if (MapInfo[i].MomentFlag)MapInfo[i].stage = AttrDown;
 					AttributeUp(types, MapInfo[i].AttrMemory[0], MapInfo[i].AttrMemory[1], MapInfo[i].AttrMemory[2]);
-
 				}
 			}
 		}
 	
 		///////////////////////musicRoom,gymnasium,toilet/////////////////////////
+		//データリセット
 		check[0] = false; check[1] = false; check[2] = false;
 		types[0] = musicRoom; types[1] = gymnasium; types[2] = toilet;
 		out[0] = 0; out[1] = 0; out[2] = 0;
@@ -590,8 +591,6 @@ void MapData::AttributeUp(Attribute array[], int NoOne, int NoTwo, int NoThree) 
 				}
 			}
 			MapInfo[NoOne].MomentFlag = false;
-			MapInfo[NoOne].TeacherRoomFlag = false;
-			MapInfo[NoOne].MusicRoomFlag = false;
 			MapInfo[NoOne].stage = AttrDownAni;
 		}
 			break;

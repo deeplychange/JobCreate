@@ -53,6 +53,9 @@ void ArrowAnime::Update(MapInformation* Map) {
 		break;
 	case Delete:
 		Map->AttrUpFlag = false;
+		Map->MomentFlag = false;
+		Map->TeacherRoomFlag = false;
+		Map->MusicRoomFlag = false;
 		Map->stage = 0;
 		Clear();
 		break;

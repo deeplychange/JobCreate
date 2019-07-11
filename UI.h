@@ -96,8 +96,8 @@ public:
 #define    DIGIT_SIZE        (64)   //  数字画像の 1 文字の大きさ
 #define    NUM_DIGIT_1LINE   (8)    //  数字画像の 1 列に並んでいる数
 #define    DigitDispSize     (20)   //数値表示の際の文字サイズ
-#define    NUMBER_POS_X      (1180)
-#define    NUMBER_POS_Y      (40)
+#define    NUMBER_POS_X      (1180.0f)
+#define    NUMBER_POS_Y      (40.0f)
 class UIListMoney : public MoveAlg2D
 {
 public:
@@ -110,33 +110,33 @@ public:
 	bool drawFlag;
 	int stage;
 	POINT point;
-	int numberPosX;
-	int numberPosY;
+	float numberPosX;
+	float numberPosY;
 	BYTE   digit[DIGIT_MAX];           //  各桁の値
-	int    digitDispSize;             //  数値表示の際の文字サイズ
+	float    digitDispSize;             //  数値表示の際の文字サイズ
 	void SetDigitDispSize(int size);      //  文字サイズ変更関数
 	void SetNumber(int num);       //  数値の設定
 	virtual void move(OBJ2D* obj, bool leftFlag, int month, int day, int money = 0);
 };
 
-class UIListMoney2 : public MoveAlg2D,public UIListMoney1
+class UIListMoney2 :public UIListMoney1
 {
 public:
-	int numberPosX;
+	float numberPosX;
 	void move(OBJ2D* obj, bool leftFlag, int month, int day, int money = 0);
 };
 
-class UIListMoney3 : public MoveAlg2D, public UIListMoney1
+class UIListMoney3 :  public UIListMoney1
 {
 public:
-	int numberPosX;
+	float numberPosX;
 	void move(OBJ2D* obj, bool leftFlag, int month, int day, int money = 0);
 };
 
-class UIListMoney4 : public MoveAlg2D, public UIListMoney1
+class UIListMoney4 : public UIListMoney1
 {
 public:
-	int numberPosX;
+	float numberPosX;
 	void move(OBJ2D* obj, bool leftFlag, int month, int day, int money = 0);
 };
 

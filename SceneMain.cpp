@@ -7,7 +7,7 @@
 //******************************************************************************
 
 //------< インクルード >---------------------------------------------------------
-#include "Billboard.h"
+#include "playerManager.h"
 #include "SceneMain.h"
 #include "Blend.h"
 #include "Texture.h"
@@ -22,7 +22,7 @@ using namespace DirectX;
 Camera camera;
 MapData mapData;
 POINT mousePos;
-Billboard billBoard;
+PlayerManager playerManager;
 
 static const int one_second = 60;
 static const int one_year = 12;
@@ -66,7 +66,7 @@ void SceneMain::update()
 		//マップの初期化
 		mapData.InitializeMap();
 		//看板の初期化
-		billBoard.Init();
+		playerManager.Init();
 
 		//GameLib::printf("ポリゴン作成しーーーーーーーます！");            //すごいdebug
 		leftFlag = false;
@@ -84,7 +84,7 @@ void SceneMain::update()
 		//マップの更新
 		mapData.UpdateMap(projection,&mousePos,money, leftFlag);
 		//看板の更新
-		billBoard.Update(&mousePos,money,leftFlag);
+		playerManager.Update(&mousePos,money,leftFlag);
 		pUIManager->update(leftFlag, month, day, money);
 		//カメラの更新
 		//カメラのタゲット毎フレームを更新
@@ -120,6 +120,9 @@ void SceneMain::update()
 		break;
 	}
 
+
+
+
 	//UI枠の表示設定
 	if (MousePosCheck(mousePos,0, 0, 64, 64*3)) {
 		UIchooseFrame.drawFlag = true;
@@ -152,23 +155,27 @@ void SceneMain::draw()
 	//カメラのビュー取得
 	view = camera.SetView();
 	
+	//*********************************************
 	//3D描画
+	//*********************************************
 	//建築描画
-	//キャラクター描画
 	mapData.DrawMap(view, projection, light_dir);
-	billBoard.Draw(view, projection, light_dir);
-
+	//キャラクター描画
+	playerManager.Draw(view, projection, light_dir);
 	//カメラディバグ用描画
 	camera.Draw();
 
+	//*********************************************
 	//2D描画
+	//*********************************************
 	//UI
 	pUIManager->draw();
 
 
+	
+#if DEBUG_FG
 	//font描画
 	char buf[512];
-#if DEBUG_FG
 	sprintf_s(buf, "mouseX:%d  mouseY:%d",mousePos.x,mousePos.y);
 	drawString(800, 600, buf, 0xFFFFFFFF, 0, 16, 36);
 #endif
